@@ -1,0 +1,62 @@
+
+// Run this command:
+
+query($last: Int, $before: String) {
+  todos(last: $last, before: $before) {
+    edges {
+      node {
+        id
+        title
+      }
+      cursor
+    }
+    pageInfo {
+      endCursor
+      startCursor
+      hasNextPage
+      hasPreviousPage
+    }
+  }
+}
+
+// with the following variables:
+
+{
+    "first": 0
+}
+
+{
+    "first": 10
+}
+
+
+{
+    "first": 25
+}
+
+{
+  "first": 27,
+}
+
+{
+  "first": 5,
+  "after": "18",
+}
+
+{
+  "first": 5,
+  "after": "pie",
+  
+}
+
+{
+  "first": 5,
+  "after": "23",
+}
+
+{
+  "first": 5,
+  "after": "25",
+}
+
+// need to test when cursorIndex doesn't exist
